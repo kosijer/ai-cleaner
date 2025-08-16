@@ -116,11 +116,58 @@ class TextCleaner {
         
         if (input.trim() === '') {
             outputText.value = '';
+            this.updateScoring(0, 0, 0);
             return;
         }
 
         const cleaned = this.cleanText(input);
         outputText.value = cleaned;
+        
+        // Update scoring
+        this.updateScoring(input);
+    }
+
+    updateScoring(input) {
+        const aiCharCount = this.countAICharacters(input);
+        const totalCharCount = input.length;
+        const aiUsagePercentage = totalCharCount > 0 ? Math.round((aiCharCount / totalCharCount) * 100) : 0;
+        
+        // Update the display
+        document.getElementById('ai-char-count').textContent = aiCharCount;
+        document.getElementById('total-char-count').textContent = totalCharCount;
+        document.getElementById('ai-usage-score').textContent = aiUsagePercentage + '%';
+        
+        // Add visual feedback based on score
+        this.updateScoreVisual(aiUsagePercentage);
+    }
+
+    countAICharacters(text) {
+        let count = 0;
+        for (const char of text) {
+            if (this.rules.hasOwnProperty(char)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    updateScoreVisual(percentage) {
+        const scoreElement = document.getElementById('ai-usage-score');
+        const scoreItem = scoreElement.closest('.score-item');
+        
+        // Remove existing color classes
+        scoreItem.classList.remove('low-score', 'medium-score', 'high-score');
+        
+        // Add appropriate color class based on percentage
+        if (percentage === 0) {
+            scoreItem.classList.add('low-score');
+        } else if (percentage <= 25) {
+            scoreItem.classList.add('low-score');
+        } else if (percentage <= 50) {
+            scoreItem.classList.add('medium-score');
+        } else {
+            scoreItem.classList.add('high-score');
+        }
     }
 
     cleanText(text) {

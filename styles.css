@@ -50,6 +50,70 @@ main {
     margin-bottom: 40px;
 }
 
+.scoring-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 40px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.score-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.score-item.main-score {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.score-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.score-value {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.main-score .score-value {
+    font-size: 2.5rem;
+    color: #ffd700;
+}
+
+/* Score level visual feedback */
+.score-item.low-score .score-value {
+    color: #28a745;
+}
+
+.score-item.medium-score .score-value {
+    color: #ffc107;
+}
+
+.score-item.high-score .score-value {
+    color: #dc3545;
+}
+
 .input-section, .output-section {
     display: flex;
     flex-direction: column;
@@ -193,6 +257,23 @@ footer {
     
     .json-controls {
         flex-direction: column;
+    }
+    
+    .score-display {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .score-item {
+        padding: 12px;
+    }
+    
+    .score-value {
+        font-size: 1.5rem;
+    }
+    
+    .main-score .score-value {
+        font-size: 2rem;
     }
 }
 
