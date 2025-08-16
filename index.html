@@ -39,7 +39,7 @@
             <div class="scoring-section">
                 <div class="score-display">
                     <div class="score-item">
-                        <span class="score-label">AI Characters:</span>
+                        <span class="score-label">Detected Features:</span>
                         <span id="ai-char-count" class="score-value">0</span>
                     </div>
                     <div class="score-item">
@@ -47,9 +47,25 @@
                         <span id="total-char-count" class="score-value">0</span>
                     </div>
                     <div class="score-item main-score">
-                        <span class="score-label">AI Usage Score:</span>
+                        <span class="score-label">AI Likelihood Score:</span>
                         <span id="ai-usage-score" class="score-value">0%</span>
                     </div>
+                </div>
+                <div class="scoring-info">
+                    <details>
+                        <summary>How is the AI Likelihood Score calculated?</summary>
+                        <div class="info-content">
+                            <p>The AI Likelihood Score analyzes multiple factors to determine how likely text is to be AI-generated:</p>
+                            <ul>
+                                <li><strong>Special Characters (20%):</strong> Unicode symbols, mathematical operators, etc.</li>
+                                <li><strong>Language Patterns (30%):</strong> Formal phrases, academic language, transition words</li>
+                                <li><strong>Structural Patterns (25%):</strong> Consistent sentence lengths, uniform paragraphs, lists</li>
+                                <li><strong>Vocabulary (15%):</strong> Sophisticated words, technical jargon</li>
+                                <li><strong>Repetition (10%):</strong> Overused words, repetitive sentence starters</li>
+                            </ul>
+                            <p><em>Note: Scores above 70% suggest high likelihood of AI generation, while scores below 30% suggest human-written text.</em></p>
+                        </div>
+                    </details>
                 </div>
             </div>
 
