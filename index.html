@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Cleaner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Text Cleaner</h1>
+            <p>Clean up AI-generated text by replacing special characters with standard ones</p>
+        </header>
+
+        <main>
+            <div class="text-boxes">
+                <div class="input-section">
+                    <label for="input-text">Input Text:</label>
+                    <textarea 
+                        id="input-text" 
+                        placeholder="Paste your AI-generated text here..."
+                        rows="10"
+                    ></textarea>
+                </div>
+
+                <div class="output-section">
+                    <label for="output-text">Cleaned Text:</label>
+                    <textarea 
+                        id="output-text" 
+                        placeholder="Cleaned text will appear here..."
+                        rows="10"
+                        readonly
+                    ></textarea>
+                    <button id="copy-btn" class="copy-btn">Copy to Clipboard</button>
+                </div>
+            </div>
+
+            <div class="rules-section">
+                <h2>Replacement Rules</h2>
+                <p>Edit the rules below to customize character replacements. Changes are applied automatically.</p>
+                <div class="json-editor">
+                    <textarea id="rules-json" rows="15" placeholder="JSON rules will load here..."></textarea>
+                    <div class="json-controls">
+                        <button id="reset-rules" class="btn">Reset to Default</button>
+                        <button id="validate-json" class="btn">Validate JSON</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ for cleaning AI-generated text</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
